@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import './App.css';
 import LifecycleHooks from './LifecycleHooks';
 import ResponsiveComponent from './ResponsiveComponent';
+import ApiComponent from './ApiComponent';
 
 const Nothing = () => 'Nothing'
 const Title = ({ children }) => <p className='title'>{children}</p>
@@ -42,6 +43,9 @@ const App = () => {
       </Block>
       <Block title='Window width listener'>
         <ResponsiveComponent />
+      </Block>
+      <Block title='Turku city bikes'>
+        <ApiComponent />
       </Block>
     </div>
   );
