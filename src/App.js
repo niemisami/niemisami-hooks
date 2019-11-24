@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import './App.css';
 import LifecycleHooks from './LifecycleHooks';
+import ResponsiveComponent from './ResponsiveComponent';
 
 const Nothing = () => 'Nothing'
 const Title = ({ children }) => <p className='title'>{children}</p>
@@ -38,6 +39,9 @@ const App = () => {
           <button onClick={increaseCount}>Plus  +</button>
         </div>
         <LifecycleDemoComponent count={count} />
+      </Block>
+      <Block title='Window width listener'>
+        <ResponsiveComponent />
       </Block>
     </div>
   );
