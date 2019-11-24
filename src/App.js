@@ -1,10 +1,11 @@
-import React, { useState, useCallback } from 'react';
-import './App.css';
-import LifecycleHooks from './LifecycleHooks';
-import ResponsiveComponent from './ResponsiveComponent';
-import ApiComponent from './ApiComponent';
+import React from 'react'
+import LifecycleHookExample from './LifecycleHookExample'
+import ResponsiveComponent from './ResponsiveComponent'
+import ApiComponent from './ApiComponent'
+import Geolocation from './Geolocation'
 
-const Nothing = () => 'Nothing'
+import './App.css'
+
 const Title = ({ children }) => <p className='title'>{children}</p>
 const Block = ({ title, children }) => (
   <div className='mt-3'>
@@ -13,42 +14,21 @@ const Block = ({ title, children }) => (
   </div>
 )
 
-const App = () => {
-  const [count, setCount] = useState(0)
-  const [isMounted, setIsMounted] = useState(true)
-  const LifecycleDemoComponent = isMounted
-    ? LifecycleHooks
-    : Nothing
+const App = () => (
+  <div className="App">
+    <Block title='Lifecycle Hooks'>
+      <LifecycleHookExample />
+    </Block>
+    <Block title='Window width listener'>
+      <ResponsiveComponent />
+    </Block>
+    <Block title='Turku city bikes'>
+      <ApiComponent />
+    </Block>
+    <Block title='Geolocation'>
+      <Geolocation />
+    </Block>
+  </div>
+)
 
-  const toggleIsMounted = useCallback(() => setIsMounted(isMounted => !isMounted), [])
-  const decreaseCount = useCallback(() => setCount(count => count - 1), [])
-  const increaseCount = useCallback(() => setCount(count => count + 1), [])
-  const clearCounter = useCallback(() => setCount(0), [])
-
-  return (
-    <div className="App">
-      <Block title='Lifecycle Hooks'>
-        <button onClick={toggleIsMounted}>
-          Mount
-        <span role='img' aria-label='mount-icon'>
-            &#x26A1;
-        </span>
-        </button>
-        <button onClick={clearCounter}>Clear</button>
-        <div>
-          <button onClick={decreaseCount}>Minus -</button>
-          <button onClick={increaseCount}>Plus  +</button>
-        </div>
-        <LifecycleDemoComponent count={count} />
-      </Block>
-      <Block title='Window width listener'>
-        <ResponsiveComponent />
-      </Block>
-      <Block title='Turku city bikes'>
-        <ApiComponent />
-      </Block>
-    </div>
-  );
-}
-
-export default App;
+export default App
