@@ -1,5 +1,8 @@
 import React, { useState, useCallback } from 'react'
 
+// NOTE: https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+// Apply introduced ref example for tracking multiple or single stations with updating intervals
+
 const Link = ({ href, children }) =>
   <a href={href} target='__blank' rel="noopener noreferrer">{children}</a>
 

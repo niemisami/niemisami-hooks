@@ -21,6 +21,7 @@ const useCityBikeApi = refreshTime => {
   const [foliResponse, setFoliResponse] = useState({})
   const [error, setError] = useState(null)
   const [lastFetched, setLastFetched] = useState(null)
+  // "useEffect tells React that your component needs to do something after render."
   useEffect(() => {
     let ignoreResponse = false
     fetch(apiUrl)
