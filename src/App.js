@@ -5,6 +5,7 @@ import ApiComponent from './ApiComponent'
 import Geolocation from './Geolocation'
 
 import './App.css'
+import RotateElement from './RotateExample'
 
 const Title = ({ children }) => <p className='title'>{children}</p>
 const Block = ({ title, children }) => (
@@ -27,6 +28,9 @@ const App = () => (
     </Block>
     <Block title='Geolocation'>
       <Geolocation />
+    </Block>
+    <Block title='Rotating element'>
+      <RotateElement />
     </Block>
   </div>
 )
